@@ -10,4 +10,5 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.bukkit/bukkit "1.8.7-R0.1"]
                  [org.reflections/reflections "0.9.8"]
+                 [org.clojure/tools.nrepl "0.2.3"]
                  [cheshire "5.2.0"]])
