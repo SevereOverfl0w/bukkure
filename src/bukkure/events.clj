@@ -1,10 +1,10 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.events
+(ns bukkure.events
   "Event handlers for bukkit"
-  (:require [cljbukkit.logging :as log]
-            [cljbukkit.util :as util]
-            [cljbukkit.bukkit :as bk]
-            [cljbukkit.player :as plr]))
+  (:require [bukkure.logging :as log]
+            [bukkure.util :as util]
+            [bukkure.bukkit :as bk]
+            [bukkure.player :as plr]))
 
 (defonce actions (util/map-enums org.bukkit.event.block.Action))
 (defonce priorities (util/map-enums org.bukkit.event.EventPriority))

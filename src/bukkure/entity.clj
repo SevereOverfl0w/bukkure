@@ -1,6 +1,6 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.entity
-  (:require [cljbukkit.util :as util]))
+(ns bukkure.entity
+  (:require [bukkure.util :as util]))
 
 (def entitytypes (util/map-enums org.bukkit.entity.EntityType))
 

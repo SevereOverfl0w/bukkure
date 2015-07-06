@@ -1,7 +1,7 @@
-name: cljbukkit
-main: cljbukkit.ClojurePlugin
+name: bukkure
+main: bukkure.ClojurePlugin
 version: 0.1.0
-website: https://github.com/SevereOverfl0w/cljbukkit
+website: https://github.com/SevereOverfl0w/bukkure
 author: SevereOverfl0w
 description: Bukkit + clojure integration library
 commands:

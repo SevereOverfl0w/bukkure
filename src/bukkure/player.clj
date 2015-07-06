@@ -1,8 +1,8 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.player
-  (:require [cljbukkit.bukkit :as bk]
-            [cljbukkit.util :as util]
-            [cljbukkit.items :as items]))
+(ns bukkure.player
+  (:require [bukkure.bukkit :as bk]
+            [bukkure.util :as util]
+            [bukkure.items :as items]))
 
 ;; Various player helper functions
 (defn broadcast

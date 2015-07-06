@@ -1,12 +1,12 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.commands
-  (:require [cljbukkit.bukkit :as bk]
-            [cljbukkit.util :as util]
-            [cljbukkit.logging :as log]
-            [cljbukkit.player :as plr]
-            [cljbukkit.events :as ev]
-            [cljbukkit.entity :as ent]
-            [cljbukkit.items :as items]
+(ns bukkure.commands
+  (:require [bukkure.bukkit :as bk]
+            [bukkure.util :as util]
+            [bukkure.logging :as log]
+            [bukkure.player :as plr]
+            [bukkure.events :as ev]
+            [bukkure.entity :as ent]
+            [bukkure.items :as items]
             )
   (:import [org.bukkit.command TabExecutor]))
 

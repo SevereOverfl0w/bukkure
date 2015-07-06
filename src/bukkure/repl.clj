@@ -1,17 +1,17 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.repl
-  (:require [cljbukkit.bukkit :as bk]
-            [cljbukkit.events :as ev]
-            [cljbukkit.entity :as ent]
-            [cljbukkit.player :as plr]
-            [cljbukkit.util :as util]
-            [cljbukkit.logging :as log]
-            [cljbukkit.config :as cfg]
-            [cljbukkit.commands :as cmd]
-            [cljbukkit.recipes :as r]
-            [cljbukkit.items :as i]
-            [cljbukkit.files :as f]
-            [cljbukkit.core :as core]
+(ns bukkure.repl
+  (:require [bukkure.bukkit :as bk]
+            [bukkure.events :as ev]
+            [bukkure.entity :as ent]
+            [bukkure.player :as plr]
+            [bukkure.util :as util]
+            [bukkure.logging :as log]
+            [bukkure.config :as cfg]
+            [bukkure.commands :as cmd]
+            [bukkure.recipes :as r]
+            [bukkure.items :as i]
+            [bukkure.files :as f]
+            [bukkure.core :as core]
             ))
 
 ;; This is a REPL scratchpatch file. It simply includes everything so

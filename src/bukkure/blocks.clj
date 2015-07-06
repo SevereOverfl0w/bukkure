@@ -1,10 +1,9 @@
 ;; TODO: Check this file manually
-;; TODO: Check this file manually
-(ns cljbukkit.blocks
-  (:require [cljbukkit.logging :as log]
-            [cljbukkit.items :as i]
-            [cljbukkit.player :as plr]
-            [cljbukkit.bukkit :as bk]))
+(ns bukkure.blocks
+  (:require [bukkure.logging :as log]
+            [bukkure.items :as i]
+            [bukkure.player :as plr]
+            [bukkure.bukkit :as bk]))
 
 (defn left-face [key]
   ({:up :up, :down :down
@@ -302,6 +301,6 @@
   
 
   (bk/ui-sync
-   @cljbukkit.core/clj-plugin
+   @bukkure.core/clj-plugin
    #(run-actions ctx (material :air) (mark :start) (left 100) (forward 100) (up 40) (cut-to-mark :start) (clear-mark :start))))
 

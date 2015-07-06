@@ -1,5 +1,5 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.logging
+(ns bukkure.logging
   (:import [org.bukkit Bukkit ChatColor]))
 
 (defn logsend [str]

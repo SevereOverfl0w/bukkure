@@ -1,17 +1,17 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.core
-  (:require [cljbukkit.bukkit :as bk]
-            [cljbukkit.blocks :as blocks]
-            [cljbukkit.events :as ev]
-            [cljbukkit.entity :as ent]
-            [cljbukkit.player :as plr]
-            [cljbukkit.util :as util]
-            [cljbukkit.logging :as log]
-            [cljbukkit.config :as cfg]
-            [cljbukkit.commands :as cmd]
-            [cljbukkit.recipes :as r]
-            [cljbukkit.items :as i]
-            [cljbukkit.files]
+(ns bukkure.core
+  (:require [bukkure.bukkit :as bk]
+            [bukkure.blocks :as blocks]
+            [bukkure.events :as ev]
+            [bukkure.entity :as ent]
+            [bukkure.player :as plr]
+            [bukkure.util :as util]
+            [bukkure.logging :as log]
+            [bukkure.config :as cfg]
+            [bukkure.commands :as cmd]
+            [bukkure.recipes :as r]
+            [bukkure.items :as i]
+            [bukkure.files]
             [clojure.tools.nrepl.server :refer (start-server stop-server)]))
 
 (def repl-handle (atom nil))
@@ -73,7 +73,7 @@
   (ent/spawn-entity (.getLocation sender) entity)
   (log/info "Spawning %s in front of %s" entity (.getName sender)))
 
-;; cljbukkit basic permission system
+;; bukkure basic permission system
 (defn permission-command [sender player permission allow-type]
   (plr/set-permission player permission allow-type))
 
@@ -96,9 +96,9 @@
   []
   (plr/permission-detach-all!))
 
-;; cljbukkit specific setup
+;; bukkure specific setup
 (defn start
-  "onEnable cljbukkit"
+  "onEnable bukkure"
   [plugin]
   (reset! clj-plugin plugin)
   (cmd/register-command @clj-plugin "clj.repl" #'repl-command [:keyword [:start :stop]] [:int [(cfg/get-int plugin "repl.port")]])
@@ -110,7 +110,7 @@
   (start-repl-if-needed plugin))
 
 (defn stop
-  "onDisable cljbukkit"
+  "onDisable bukkure"
   [plugin]
   (stop-repl)
   (disable-permission-system))

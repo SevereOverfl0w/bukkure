@@ -1,6 +1,6 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.bukkit
-  (:require [cljbukkit.util :as util])
+(ns bukkure.bukkit
+  (:require [bukkure.util :as util])
   (:import [org.bukkit Bukkit]
            [java.util UUID]))
 

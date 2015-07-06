@@ -1,8 +1,8 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.config
+(ns bukkure.config
   "Provides a thin wrapper for bukkit config"
-  (:require [cljbukkit.logging :as logging])
-  (:require [cljbukkit.util :as util]))
+  (:require [bukkure.logging :as logging])
+  (:require [bukkure.util :as util]))
 
 (defn config-defaults 
   "Loads the bukkit config file for the given plugin and sets defaults, returns a configuration object"

@@ -1,8 +1,8 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.items
-  (:require [cljbukkit.util :as util]
-            [cljbukkit.logging :as log])
-  (:require [cljbukkit.entity :as ent])
+(ns bukkure.items
+  (:require [bukkure.util :as util]
+            [bukkure.logging :as log])
+  (:require [bukkure.entity :as ent])
   (:import [org.bukkit TreeSpecies Material])
   (:import [org.bukkit.material
             MaterialData Tree Dispenser Sandstone Bed PoweredRail DetectorRail Wool Chest Crops

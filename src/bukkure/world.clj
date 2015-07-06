@@ -2,10 +2,10 @@
 ;; TODO: Check this file manually
 ;; TODO: Check this file manually
 ;; TODO: Check this file manually
-(ns cljbukkit.world
-  (:require [cljbukkit.bukkit :as bk])
-  (:require [cljbukkit.player :as plr])
-  (:require [cljbukkit.util :as util])
+(ns bukkure.world
+  (:require [bukkure.bukkit :as bk])
+  (:require [bukkure.player :as plr])
+  (:require [bukkure.util :as util])
   (:import [org.bukkit.material Directional]
            [org.bukkit Location]
            [org.bukkit.util Vector]))

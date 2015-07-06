@@ -1,7 +1,7 @@
 ;; TODO: Check this file manually
-(ns cljbukkit.util
+(ns bukkure.util
   (:require [clojure.set :as set])
-  (:require [cljbukkit.logging :as log])
+  (:require [bukkure.logging :as log])
   (:import (java.net ServerSocket InetSocketAddress))
   (:import (java.io IOException))
   )
