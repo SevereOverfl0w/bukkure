@@ -10,7 +10,7 @@ for fileLoc in fileLocations:
 
     contents = myfile.read()
     contents = contents.replace("cljminecraft", "cljbukkit")
-    contents = ";; TODO: Check this file manually\n" + contents
+    # contents = ";; TODO: Check this file manually\n" + contents
 
     myfileW = open(fileLoc, "w")
     myfileW.write(contents)
