@@ -9,7 +9,7 @@ for fileLoc in fileLocations:
     myfile = open(fileLoc, "r")
 
     contents = myfile.read()
-    contents = contents.replace("cljminecraft", "cljbukkit")
+    contents = contents.replace("cljbukkit", "bukkure")
     # contents = ";; TODO: Check this file manually\n" + contents
 
     myfileW = open(fileLoc, "w")
