@@ -1,5 +1,6 @@
 # Bukkure
 Integrating Bukkit and Clojure for heaveanly delight.
+[![Clojars Project](http://clojars.org/bukkure/latest-version.svg)](http://clojars.org/bukkure)
 
 ## Installing
 As the Bukkit API is now private, and not available on any repos, you must now
