@@ -1,4 +1,4 @@
-package cljbukkit;
+package bukkure;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import clojure.java.api.Clojure;

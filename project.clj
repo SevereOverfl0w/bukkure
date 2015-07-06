@@ -1,6 +1,6 @@
-(defproject cljbukkit "0.1.0-SNAPSHOT"
+(defproject bukkure "0.1.0-SNAPSHOT"
   :description "Bringing Clojure to the Bukkit API"
-  :url "http://example.com/FIXME"
+  :url "http://github.com/SevereOverfl0w/Bukkure"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :java-source-paths ["javasrc"]

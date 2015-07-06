@@ -1,6 +1,5 @@
-# cljbukkit
-
-A Clojure library designed to ... well, that part is up to you.
+# Bukkure
+Integrating Bukkit and Clojure for heaveanly delight.
 
 ## Building
 As the Bukkit API is now private, and not available on any repos, you must now
@@ -11,16 +10,17 @@ built, you will need to work on the Bukkit file from
 for example.
 
 You will then need to install this to a local maven repository, fortunately
-this is very easy.
+this is very easy using the [localrepo plugin](https://github.com/kumarshantanu/lein-localrepo)
 
 `$ lein localrepo install ../build-spigot/Bukkit/target/bukkit-VERSION-SNAPSHOT.jar org.bukkit/bukkit VERSION`
 
 ## Usage
-
+- ???
+- Profit
 
 ## License
 
-Copyright © 2015 FIXME
+Copyright © 2015 Dominic Monroe
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
