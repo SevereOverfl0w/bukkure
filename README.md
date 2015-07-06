@@ -1,7 +1,7 @@
 # Bukkure
 Integrating Bukkit and Clojure for heaveanly delight.
 
-## Building
+## Installing
 As the Bukkit API is now private, and not available on any repos, you must now
 build it yourself. To do this, follow the
 [Spigot build instructions](https://www.spigotmc.org/wiki/buildtools/), once 
@@ -14,9 +14,7 @@ this is very easy using the [localrepo plugin](https://github.com/kumarshantanu/
 
 `$ lein localrepo install ../build-spigot/Bukkit/target/bukkit-VERSION-SNAPSHOT.jar org.bukkit/bukkit VERSION`
 
-## Usage
-- ???
-- Profit
+Then you should be able to add Bukkure as a dependency to your project.
 
 ## License
 
