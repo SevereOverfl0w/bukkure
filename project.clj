@@ -7,4 +7,5 @@
   :javac-options ["-d" "classes/" "-source" "1.7" "-target" "1.7"]
   :resource-paths ["resources/*"]
   :plugins [[lein-localrepo "0.5.3"]]
-  :dependencies [[org.clojure/clojure "1.7.0"]])
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.bukkit/bukkit "1.8.3-RC0.1"]])
