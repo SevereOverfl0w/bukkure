@@ -1,7 +1,8 @@
-(ns cljminecraft.config
+;; TODO: Check this file manually
+(ns cljbukkit.config
   "Provides a thin wrapper for bukkit config"
-  (:require [cljminecraft.logging :as logging])
-  (:require [cljminecraft.util :as util]))
+  (:require [cljbukkit.logging :as logging])
+  (:require [cljbukkit.util :as util]))
 
 (defn config-defaults 
   "Loads the bukkit config file for the given plugin and sets defaults, returns a configuration object"

@@ -1,7 +1,8 @@
-(ns cljminecraft.player
-  (:require [cljminecraft.bukkit :as bk]
-            [cljminecraft.util :as util]
-            [cljminecraft.items :as items]))
+;; TODO: Check this file manually
+(ns cljbukkit.player
+  (:require [cljbukkit.bukkit :as bk]
+            [cljbukkit.util :as util]
+            [cljbukkit.items :as items]))
 
 ;; Various player helper functions
 (defn broadcast

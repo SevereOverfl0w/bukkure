@@ -1,6 +1,7 @@
-(ns cljminecraft.util
+;; TODO: Check this file manually
+(ns cljbukkit.util
   (:require [clojure.set :as set])
-  (:require [cljminecraft.logging :as log])
+  (:require [cljbukkit.logging :as log])
   (:import (java.net ServerSocket InetSocketAddress))
   (:import (java.io IOException))
   )

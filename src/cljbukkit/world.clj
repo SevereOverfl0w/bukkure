@@ -1,7 +1,11 @@
-(ns cljminecraft.world
-  (:require [cljminecraft.bukkit :as bk])
-  (:require [cljminecraft.player :as plr])
-  (:require [cljminecraft.util :as util])
+;; TODO: Check this file manually
+;; TODO: Check this file manually
+;; TODO: Check this file manually
+;; TODO: Check this file manually
+(ns cljbukkit.world
+  (:require [cljbukkit.bukkit :as bk])
+  (:require [cljbukkit.player :as plr])
+  (:require [cljbukkit.util :as util])
   (:import [org.bukkit.material Directional]
            [org.bukkit Location]
            [org.bukkit.util Vector]))

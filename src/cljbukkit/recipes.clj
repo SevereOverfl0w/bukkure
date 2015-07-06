@@ -1,7 +1,8 @@
-(ns cljminecraft.recipes
-  (:require [cljminecraft.player :as plr])
-  (:require [cljminecraft.bukkit :as bk])
-  (:require [cljminecraft.items :as items])
+;; TODO: Check this file manually
+(ns cljbukkit.recipes
+  (:require [cljbukkit.player :as plr])
+  (:require [cljbukkit.bukkit :as bk])
+  (:require [cljbukkit.items :as items])
   (:import [org.bukkit.inventory ShapedRecipe ShapelessRecipe ItemStack]))
 
 (defn shapeless [material-map result ingredients qty]

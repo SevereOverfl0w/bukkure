@@ -1,4 +1,5 @@
-(ns cljminecraft.logging
+;; TODO: Check this file manually
+(ns cljbukkit.logging
   (:import [org.bukkit Bukkit ChatColor]))
 
 (defn logsend [str]

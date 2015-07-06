@@ -1,16 +1,17 @@
-(ns cljminecraft.repl
-  (:require [cljminecraft.bukkit :as bk]
-            [cljminecraft.events :as ev]
-            [cljminecraft.entity :as ent]
-            [cljminecraft.player :as plr]
-            [cljminecraft.util :as util]
-            [cljminecraft.logging :as log]
-            [cljminecraft.config :as cfg]
-            [cljminecraft.commands :as cmd]
-            [cljminecraft.recipes :as r]
-            [cljminecraft.items :as i]
-            [cljminecraft.files :as f]
-            [cljminecraft.core :as core]
+;; TODO: Check this file manually
+(ns cljbukkit.repl
+  (:require [cljbukkit.bukkit :as bk]
+            [cljbukkit.events :as ev]
+            [cljbukkit.entity :as ent]
+            [cljbukkit.player :as plr]
+            [cljbukkit.util :as util]
+            [cljbukkit.logging :as log]
+            [cljbukkit.config :as cfg]
+            [cljbukkit.commands :as cmd]
+            [cljbukkit.recipes :as r]
+            [cljbukkit.items :as i]
+            [cljbukkit.files :as f]
+            [cljbukkit.core :as core]
             ))
 
 ;; This is a REPL scratchpatch file. It simply includes everything so

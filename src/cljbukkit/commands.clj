@@ -1,11 +1,12 @@
-(ns cljminecraft.commands
-  (:require [cljminecraft.bukkit :as bk]
-            [cljminecraft.util :as util]
-            [cljminecraft.logging :as log]
-            [cljminecraft.player :as plr]
-            [cljminecraft.events :as ev]
-            [cljminecraft.entity :as ent]
-            [cljminecraft.items :as items]
+;; TODO: Check this file manually
+(ns cljbukkit.commands
+  (:require [cljbukkit.bukkit :as bk]
+            [cljbukkit.util :as util]
+            [cljbukkit.logging :as log]
+            [cljbukkit.player :as plr]
+            [cljbukkit.events :as ev]
+            [cljbukkit.entity :as ent]
+            [cljbukkit.items :as items]
             )
   (:import [org.bukkit.command TabExecutor]))
 

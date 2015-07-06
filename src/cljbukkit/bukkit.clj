@@ -1,5 +1,6 @@
-(ns cljminecraft.bukkit
-  (:require [cljminecraft.util :as util])
+;; TODO: Check this file manually
+(ns cljbukkit.bukkit
+  (:require [cljbukkit.util :as util])
   (:import [org.bukkit Bukkit]
            [java.util UUID]))
 

@@ -1,8 +1,10 @@
-(ns cljminecraft.blocks
-  (:require [cljminecraft.logging :as log]
-            [cljminecraft.items :as i]
-            [cljminecraft.player :as plr]
-            [cljminecraft.bukkit :as bk]))
+;; TODO: Check this file manually
+;; TODO: Check this file manually
+(ns cljbukkit.blocks
+  (:require [cljbukkit.logging :as log]
+            [cljbukkit.items :as i]
+            [cljbukkit.player :as plr]
+            [cljbukkit.bukkit :as bk]))
 
 (defn left-face [key]
   ({:up :up, :down :down
@@ -300,6 +302,6 @@
   
 
   (bk/ui-sync
-   @cljminecraft.core/clj-plugin
+   @cljbukkit.core/clj-plugin
    #(run-actions ctx (material :air) (mark :start) (left 100) (forward 100) (up 40) (cut-to-mark :start) (clear-mark :start))))
 

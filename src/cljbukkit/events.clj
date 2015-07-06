@@ -1,9 +1,10 @@
-(ns cljminecraft.events
+;; TODO: Check this file manually
+(ns cljbukkit.events
   "Event handlers for bukkit"
-  (:require [cljminecraft.logging :as log]
-            [cljminecraft.util :as util]
-            [cljminecraft.bukkit :as bk]
-            [cljminecraft.player :as plr]))
+  (:require [cljbukkit.logging :as log]
+            [cljbukkit.util :as util]
+            [cljbukkit.bukkit :as bk]
+            [cljbukkit.player :as plr]))
 
 (defonce actions (util/map-enums org.bukkit.event.block.Action))
 (defonce priorities (util/map-enums org.bukkit.event.EventPriority))

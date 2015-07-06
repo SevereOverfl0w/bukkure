@@ -1,16 +1,17 @@
-(ns cljminecraft.core
-  (:require [cljminecraft.bukkit :as bk]
-            [cljminecraft.blocks :as blocks]
-            [cljminecraft.events :as ev]
-            [cljminecraft.entity :as ent]
-            [cljminecraft.player :as plr]
-            [cljminecraft.util :as util]
-            [cljminecraft.logging :as log]
-            [cljminecraft.config :as cfg]
-            [cljminecraft.commands :as cmd]
-            [cljminecraft.recipes :as r]
-            [cljminecraft.items :as i]
-            [cljminecraft.files]
+;; TODO: Check this file manually
+(ns cljbukkit.core
+  (:require [cljbukkit.bukkit :as bk]
+            [cljbukkit.blocks :as blocks]
+            [cljbukkit.events :as ev]
+            [cljbukkit.entity :as ent]
+            [cljbukkit.player :as plr]
+            [cljbukkit.util :as util]
+            [cljbukkit.logging :as log]
+            [cljbukkit.config :as cfg]
+            [cljbukkit.commands :as cmd]
+            [cljbukkit.recipes :as r]
+            [cljbukkit.items :as i]
+            [cljbukkit.files]
             [clojure.tools.nrepl.server :refer (start-server stop-server)]))
 
 (def repl-handle (atom nil))
@@ -72,7 +73,7 @@
   (ent/spawn-entity (.getLocation sender) entity)
   (log/info "Spawning %s in front of %s" entity (.getName sender)))
 
-;; cljminecraft basic permission system
+;; cljbukkit basic permission system
 (defn permission-command [sender player permission allow-type]
   (plr/set-permission player permission allow-type))
 
@@ -95,9 +96,9 @@
   []
   (plr/permission-detach-all!))
 
-;; cljminecraft specific setup
+;; cljbukkit specific setup
 (defn start
-  "onEnable cljminecraft"
+  "onEnable cljbukkit"
   [plugin]
   (reset! clj-plugin plugin)
   (cmd/register-command @clj-plugin "clj.repl" #'repl-command [:keyword [:start :stop]] [:int [(cfg/get-int plugin "repl.port")]])
@@ -109,7 +110,7 @@
   (start-repl-if-needed plugin))
 
 (defn stop
-  "onDisable cljminecraft"
+  "onDisable cljbukkit"
   [plugin]
   (stop-repl)
   (disable-permission-system))

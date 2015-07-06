@@ -1,4 +1,5 @@
-(ns cljminecraft.files
+;; TODO: Check this file manually
+(ns cljbukkit.files
   (:require [cheshire.core :as json])
   (:require [clojure.java.io :as io]))
 
