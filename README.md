@@ -21,6 +21,9 @@ You now have a Minecraft server with a Clojure REPL running. To connect to it, y
 There is also a bukkure plugin template available, but it is still in snapshot, to get it use:
 `lein new bukkure my-awesome-plugin --snapshot`
 
+## API
+The api is completely undocumented at this time, the best way to find out the api methods at this time is by diving into the source.
+
 ## License
 
 Copyright © 2015 Dominic Monroe
