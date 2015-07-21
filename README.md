@@ -8,25 +8,23 @@ However, you can download the jar from [md-5's CI](http://ci.md-5.net/job/Spigot
 
 You should start spigot once, to create required folders & files (e.g. the plugins directory)
 
-You will also need a build of Bukkure, currently the way to do this is to clone this repo
+## Plugin Development
+There is a bukkure plugin template available, but it is still in snapshot, to get it use:
+`lein new bukkure my-awesome-plugin --snapshot`
+
+## REPL
+You will need a build of Bukkure, currently the way to do this is to clone this repo
 
 `git clone https://github.com/SevereOverfl0w/bukkure.git`
 and then build with [leiningen](http://leiningen.org/)
 `lein uberjar`
 The created standalone jar from the `target` directory should then be placed in your Spigot `plugins` directory.
 
-You now have a Minecraft server with a Clojure REPL running. To connect to it, you can do like so:
-`lein repl :connect 4005`
-
-There is also a bukkure plugin template available, but it is still in snapshot, to get it use:
-`lein new bukkure my-awesome-plugin --snapshot`
-
-## REPL
-If you install Bukkure into your `plugins` directory, you will get a network REPL available. Connecting to it
-is simple, just `lein repl :connect 4005`. The REPL can be configured from the `plugins/bukkure/config.yml` file.
+Once installed connecting to it is simple, just `lein repl :connect 4005`.
+The REPL can be configured from the `plugins/bukkure/config.yml` file.
 
 
-Here's an example lifted from cljminecraft.
+Here's example usage lifted from cljminecraft.
 ```clojure
 user=> (in-ns 'bukkure.core)
 #<Namespace bukkure.core>
