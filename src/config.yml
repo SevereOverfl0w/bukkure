@@ -1,4 +1,0 @@
-repl:
-  host: 0.0.0.0
-  port: 4005
-  enabled: true
