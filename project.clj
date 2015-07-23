@@ -7,6 +7,7 @@
   :javac-options ["-d" "classes/" "-source" "1.7" "-target" "1.7"]
   :resource-paths ["resources/*"]
   :repositories [["spigot-repo" "https://hub.spigotmc.org/nexus/content/groups/public/"]]
+  :plugins [[codox "0.8.13"]]
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.bukkit/bukkit "1.8.7-R0.1-SNAPSHOT"]
                  [org.reflections/reflections "0.9.8"]
