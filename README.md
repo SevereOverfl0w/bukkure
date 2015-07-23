@@ -16,7 +16,7 @@ There is a bukkure plugin template available, but it is still in snapshot, to ge
 Use [bukkurerepl](https://github.com/SevereOverfl0w/bukkurerepl)
 
 ## API
-The api is completely undocumented at this time, the best way to find out the api methods at this time is by diving into the source.
+[API Documentation](http://severeoverfl0w.github.io/bukkure/)
 
 ## License
 
