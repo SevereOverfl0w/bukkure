@@ -9,14 +9,17 @@
 (defonce actions (util/map-enums org.bukkit.event.block.Action))
 (defonce priorities (util/map-enums org.bukkit.event.EventPriority))
 
-(defn handle-event [f e]
+(defn handle-event
+  "A small wrapper around an event, to allow return values"
+  [f e]
   (if-let [response (f e)]
     (do
       (if (:msg response) (plr/send-msg e (:msg response))))))
 
-(defn register-event [plugin eventname f & [priority-key]]
+(defn register-event
+  "Registers an event to a plugin"
+  [plugin eventname f & [priority-key]]
   (let [eventclass (resolve (symbol (util/package-classname "org.bukkit.event" (str eventname "-event"))))]
-    (log/info "Registering event %s for plugin %s" eventname (.getName plugin))
     (.registerEvent
      (bk/plugin-manager)
      eventclass
@@ -29,7 +32,9 @@
 (defonce registered-events
   (atom #{}))
 
-(defn register-eventlist [plugin events]
+(defn register-eventlist
+  "Register a list of events."
+  [plugin events]
   (doseq [ev events]
     (when-not (@registered-events ev)
       (swap! registered-events conj ev)
@@ -46,16 +51,22 @@ argument"
     :event-fn fn
     :priority priority})
 
-(defn find-event [name]
+(defn find-event
+  "Finds an event by it's name"
+  [name]
   (let [classes (util/find-subclasses "org.bukkit" org.bukkit.event.Event)
         names (map #(.replaceAll
                      (.replaceAll (util/class-named %) "org.bukkit.event." "")
                      "-event$" "") classes)]
     (filter #(.contains % (.toLowerCase name)) names)))
 
-(def boring-methods #{"getHandlers" "getHandlerList" "wait" "equals" "toString" "hashCode" "getClass" "notify" "notifyAll" "isAsynchronous"})
+(def boring-methods
+  "Boring methods to hide when describing an event"
+  #{"getHandlers" "getHandlerList" "wait" "equals" "toString" "hashCode" "getClass" "notify" "notifyAll" "isAsynchronous"})
 
-(defn describe-event [eventname]
+(defn describe-event
+  "Returns a list of methods an event has, excluding [[boring-methods]]"
+  [eventname]
   (let [classname (util/package-classname "org.bukkit.event" (str eventname "-event"))
         cl (resolve (symbol classname))]
     (set

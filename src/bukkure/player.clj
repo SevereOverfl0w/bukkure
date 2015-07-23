@@ -51,7 +51,9 @@
 (defn send-msg [player fmt & args]
   (.sendMessage (get-player player) (apply format fmt args)))
 
-(defn give [player material-key & [qty]]
+(defn give
+  "Give an item to a player"
+  [player material-key & [qty]]
   (let [stack (items/item-stack material-key qty)
         player (get-player player)]
     (.addItem (.getInventory (get-player player)) (into-array org.bukkit.inventory.ItemStack [stack]))))
@@ -102,13 +104,13 @@
     (filter #(.startsWith % name) permissionlist)))
 
 (defn has-permission
-  "Check if a player has a permission - this does an implicit (get-player player), so you can pass in a String, Player, Event (that has .getPlayer), InventoryView, etc. (see get-player protocol)"
+  "Check if a player has a permission - this does an implicit (get-player player), so you can pass in a String, Player, Event (that has .getPlayer), InventoryView, etc. (see [[get-player]] protocol)"
   [player permission]
   (let [plr (get-player player)]
     (.hasPermission plr permission)))
 
 (defn set-permission
-  "This uses the clj-minecraft permission handling to set a permission. This is very simplistic and really for basic permission setting so that you don't need another plugin for the basic permission management - allow-type can be :allow, :disallow or :release - :disallow actively disallows a permission, where :release just unsets it and lets possibly another plugin set it again."
+  "This uses the bukkure permission handling to set a permission. This is very simplistic and really for basic permission setting so that you don't need another plugin for the basic permission management - allow-type can be :allow, :disallow or :release - :disallow actively disallows a permission, where :release just unsets it and lets possibly another plugin set it again."
   [player permission allow-type]
   (let [plr (get-player player)
         attach (get @permission-attachments (.getName plr))]

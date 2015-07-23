@@ -7,13 +7,17 @@
     (.sendMessage sender str)
     (println str)))
 
-(defmacro info [fmt & args]
+(defmacro info
+  "Log an info-style message"
+  [fmt & args]
   `(logsend (format ~(str ChatColor/GREEN (.getName *ns*) ChatColor/RESET ":" ChatColor/BLUE (:line (meta &form)) ChatColor/RESET " - " fmt) ~@args)))
 
 (defmacro warn [fmt & args]
+  "Log an warn-style message"
   `(logsend (format ~(str ChatColor/YELLOW (.getName *ns*) ChatColor/RESET ":" ChatColor/BLUE (:line (meta &form)) ChatColor/RESET " - " fmt) ~@args)))
 
 (defmacro debug [fmt & args]
+  "Log an debug-style message"
   `(logsend (format ~(str ChatColor/RED (.getName *ns*) ChatColor/RESET ":" ChatColor/BLUE (:line (meta &form)) ChatColor/RESET " - " fmt) ~@args)))
 
 (defmacro bug

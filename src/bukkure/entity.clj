@@ -4,7 +4,9 @@
 
 (def entitytypes (util/map-enums org.bukkit.entity.EntityType))
 
-(defn get-entities [world & {:keys [type-keys living?]}]
+(defn get-entities
+  "Get the entities for a world, search by entity class, living or all"
+  [world & {:keys [type-keys living?]}]
   (cond
    type-keys
    (let [entclasses
@@ -19,11 +21,15 @@
    :else
    (.getEntities world)))
 
-(defn find-entity [nm]
+(defn find-entity
+  "Find an entity by it's name"
+  [nm]
   (let [names (map #(name (first %)) entitytypes)]
     (filter #(.contains % (.toLowerCase nm)) names)))
 
-(defn spawn-entity [location entityname]
+(defn spawn-entity
+  "Spawn an entity by name, at a location"
+  [location entityname]
   (let [type (get entitytypes (keyword entityname))]
     (when (and type (.isSpawnable type))
       (.spawnEntity (.getWorld location) location type))))

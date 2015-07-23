@@ -47,17 +47,22 @@
     (.spawnArrow (.getWorld location) vector (or speed 0.6) (or spread 12))))
 
 (defn lightning
+  "Strikes lightning at the given Location, no damage is done if effectonly? is true"
   [location & [effectonly?]]
   (if effectonly?
     (.strikeLightningEffect (.getWorld location) location)
     (.strikeLightning (.getWorld location) location)))
 
-(defn effect [location effect-key data & [radius]]
+(defn effect
+  "Plays an effect to all players within an optional radius around a given location."
+  [location effect-key data & [radius]]
   (if radius
     (.playEffect (.getWorld location) location effect data radius)
     (.playEffect (.getWorld location) location effect data)))
 
-(defn sound [location sound-key volume pitch]
+(defn sound
+  "Create a sound in a location"
+  [location sound-key volume pitch]
   (if-let [sound (get sounds sound-key)]
     (.playSound (.getWorld location) location sound volume pitch)))
 
