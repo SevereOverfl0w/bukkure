@@ -145,14 +145,3 @@
   ;; receiving function will be guarenteed to be passed a Player
   ;; object and an integer instead of two strings.
   (register-command plugin "transfer" #'give-money :player :int))
-
-
-
-
-
-
-
-
-
-
-

@@ -4,37 +4,58 @@
   (:import [org.bukkit Bukkit]
            [java.util UUID]))
 
-(defn server []
+(defn server
+  "Returns an instance of the server"
+  []
   (Bukkit/getServer))
 
-(defn plugin-manager []
+(defn plugin-manager
+  "Returns the plugin manager for the server"
+  []
   (.getPluginManager (server)))
 
-(defn scheduler []
+(defn scheduler
+  "Returns the scheduler for the server"
+  []
   (.getScheduler (server)))
 
-(defn services-manager []
+(defn services-manager
+  "Returns the services manager"
+  []
   (.getServicesManager (server)))
 
-(defn worlds []
+(defn worlds
+  "Get the worlds for the server"
+  []
   (.getWorlds (server)))
 
-(defn online-players []
+(defn online-players
+  "Get a list of online players as Player objects"
+  []
   (seq (.getOnlinePlayers (server))))
 
-(defn broadcast [fmt & args]
+(defn broadcast
+  "Broadcast a message to all online players"
+  [fmt & args]
   (.broadcastMessage (server) (apply format fmt args)))
 
-(defn broadcast-permission [permission fmt & args]
+(defn broadcast-permission
+  "Broadcast a message to all online players with a permission"
+  [permission fmt & args]
   (.broadcastMessage (server) (apply format fmt args) permission))
 
-(defn world-by-name [name]
+(defn world-by-name
+  "Get a world by it's name"
+  [name]
   (.getWorld (server) name))
 
-(defn world-by-uuid [uuid]
+(defn world-by-uuid
+  "Get a world by it's uuid"
+  [uuid]
   (.getWorld (server) (UUID/fromString uuid)))
 
 (defn seconds-to-ticks [s]
+  "Converts seconds to ticks"
   (int (* 20 s)))
 
 (defn ui-sync
@@ -57,13 +78,16 @@
     (.runTaskTimer (scheduler) plugin fn (long delay) (long period))))
 
 (defn cancel-task
+  "Cancel a task by it's id"
   [task-id]
   (.cancelTask (scheduler) task-id))
 
 (defn running-task?
+  "Check if a task is currently running"
   [task-id]
   (.isCurrentlyRunning (scheduler) task-id))
 
 (defn queued-task?
+  "Check if a task is queued"
   [task-id]
   (.isQueued (scheduler) task-id))

@@ -9,13 +9,19 @@
   [plugin]
   (.saveDefaultConfig plugin))
 
-(defn defcn [type]
-  `(defn ~(symbol (str "get-" (name type))) [~(symbol "plugin") ~(symbol "path")]
+(defn defcn
+  "Defines the config methods for a type"
+  [type]
+  `(defn ~(symbol (str "get-" (name type)))
+     ~(str "Get a " type " from a config path")
+     [~(symbol "plugin") ~(symbol "path")]
      (try
        (~(symbol (str ".get" (util/camelcase (name type)))) (.getConfig ~(symbol "plugin")) ~(symbol "path"))
        (catch Exception ~(symbol "e") nil))))
 
-(defmacro defcns [& types]
+(defmacro defcns
+  "Convenience wrapper around [[defn]] to map a list to it."
+  [& types]
   (let [forms (map defcn types)]
     `(do ~@forms)))
 

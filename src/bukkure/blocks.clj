@@ -5,22 +5,30 @@
             [bukkure.player :as plr]
             [bukkure.bukkit :as bk]))
 
-(defn left-face [key]
+(defn left-face
+  "Get the face 270deg from the given one. Stays the same for up/down"
+  [key]
   ({:up :up, :down :down
     :north :east, :east :south
     :south :west, :west :north} key))
 
-(defn right-face [key]
+(defn right-face
+  "Get the face 90deg from the given one. Stays the same for up/down"
+  [key]
   ({:up :up, :down :down
     :north :west, :west :south
     :south :east, :east :north} key))
 
-(defn opposite-face [key]
+(defn opposite-face
+  "Get the opposite facing direction"
+  [key]
   ({:up :down, :down :up
     :north :south, :south :north
     :east :west, :west :east} key))
 
-(defn find-relative-dir [d r]
+(defn find-relative-dir
+  "Find relative direction, where forward is north, and left is west"
+  [d r]
   ({:north d :south (opposite-face d) :east (left-face d) :west (right-face d) :up :up :down :down} r))
 
 
@@ -35,7 +43,8 @@
      :else
      (recur (first r) (rest r) (run-action context a)))))
 
-(defmacro defaction [name docstring ctx-binding params & method-body]
+(defmacro defaction
+  [name docstring ctx-binding params & method-body]
   (let [params (map #(symbol (.getName (symbol %))) params)]
     `(do
        (defn ~name ~docstring [~@params]
@@ -62,22 +71,34 @@
     (assoc ctx :origin (.getLocation (.getRelative startblock (get i/blockfaces d) (or distance 1))))))
 
 
-(defn forward [& [x]]
+(defn forward
+  "See [[move]] :north x"
+  [& [x]]
   (move :north x))
 
-(defn back [& [x]]
+(defn back
+  "See [[move]] :south x"
+  [& [x]]
   (move :south x))
 
-(defn left [& [x]]
+(defn left
+  "See [[move]] :east x"
+  [& [x]]
   (move :east x))
 
-(defn right [& [x]]
+(defn right
+  "See [[move]] :west x"
+  [& [x]]
   (move :west x))
 
-(defn up [& [x]]
+(defn up
+  "See [[move]] :up x"
+  [& [x]]
   (move :up x))
 
-(defn down [& [x]]
+(defn down
+  "See [[move]] :down x"
+  [& [x]]
   (move :down x))
 
 
@@ -133,7 +154,9 @@
   {:keys [marks] :as ctx} [mark]
   (assoc ctx :marks (assoc marks mark (dissoc ctx marks))))
 
-(defn gen-mark []
+(defn gen-mark
+  "Returns a random UUID as a string"
+  []
   (.toString (java.util.UUID/randomUUID)))
 
 (defaction jump
@@ -142,7 +165,7 @@
   (merge ctx (get marks mark {})))
 
 (defaction copy
-  "copy a sphere of a given radius into a mark"
+  "Copy a sphere of a given radius into a mark"
   {:keys [marks origin] :as ctx} [mark radius]
   (let [distance (* radius radius)
         copy-blob
@@ -255,7 +278,8 @@
      (line-to-mark m)
      (clear-mark m)]))
 
-(defn extrude [direction x & actions]
+(defn extrude
+  [direction x & actions]
   (for [c (range x)]
     (fork
      {:action :move :direction direction :distance c}
