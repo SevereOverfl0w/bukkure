@@ -20,7 +20,7 @@
        (catch Exception ~(symbol "e") nil))))
 
 (defmacro defcns
-  "Wrapper around [[defn]] to map a list to it, and execute the form returned"
+  "Wrapper around [[defcn]] to map a list to it, and execute the form returned"
   [& types]
   (let [forms (map defcn types)]
     `(do ~@forms)))
