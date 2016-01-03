@@ -14,5 +14,5 @@
                  [org.clojure/tools.nrepl "0.2.3"]
                  [cheshire "5.2.0"]]
   :profiles {:provided
-              {:dependencies [[org.bukkit/bukkit "1.8.7-R0.1-SNAPSHOT"]]}})
+              {:dependencies [[org.bukkit/bukkit "1.8.8-R0.1-SNAPSHOT"]]}})
 
