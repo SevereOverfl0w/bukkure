@@ -1,4 +1,4 @@
-(defproject bukkure "0.4.2-SNAPSHOT"
+(defproject bukkure "0.4.3-SNAPSHOT"
   :description "Bringing Clojure to the Bukkit API"
   :url "http://github.com/SevereOverfl0w/Bukkure"
   :license {:name "Eclipse Public License"
@@ -10,7 +10,9 @@
   :plugins [[codox "0.8.13"]]
   :codox {:defaults {:doc/format :markdown}}
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.bukkit/bukkit "1.8.7-R0.1-SNAPSHOT"]
                  [org.reflections/reflections "0.9.8"]
                  [org.clojure/tools.nrepl "0.2.3"]
-                 [cheshire "5.2.0"]])
+                 [cheshire "5.2.0"]]
+  :profiles {:provided
+              {:dependencies [[org.bukkit/bukkit "1.8.8-R0.1-SNAPSHOT"]]}})
+
