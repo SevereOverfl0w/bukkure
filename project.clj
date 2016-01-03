@@ -1,4 +1,4 @@
-(defproject bukkure "0.4.2-SNAPSHOT"
+(defproject bukkure "0.4.3-SNAPSHOT"
   :description "Bringing Clojure to the Bukkit API"
   :url "http://github.com/SevereOverfl0w/Bukkure"
   :license {:name "Eclipse Public License"
