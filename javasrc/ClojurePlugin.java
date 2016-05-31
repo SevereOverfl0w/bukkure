@@ -15,32 +15,26 @@ import java.net.MalformedURLException;
 public class ClojurePlugin extends JavaPlugin {
   static {
     // Static initialization of ClojurePlugin
-    ClassLoader bukkitCL = Thread.currentThread().getContextClassLoader();
     final ClassLoader ClojurePluginCL = ClojurePlugin.class.getClassLoader(); // Different from clojure class loader!
     Thread.currentThread().setContextClassLoader(ClojurePluginCL);
 
-    try {
-      /* This code sets the class loader of Clojure. It uses an undocumented API
-       * and is very likely to break in the future. However, until such a time 
-       * an API is provided, it's our only method :(
-       *
-       * It is required due to Bukkit changing the class loader, to load plugins.
-      */
-      DynamicClassLoader newCL = (DynamicClassLoader) AccessController.doPrivileged(new PrivilegedAction() {
-        @Override
-        public Object run() {
-          return new clojure.lang.DynamicClassLoader(ClojurePluginCL);
-        }
-      });
+    /* This code sets the class loader of Clojure. It uses an undocumented API
+     * and is very likely to break in the future. However, until such a time 
+     * an API is provided, it's our only method :(
+     *
+     * It is required due to Bukkit changing the class loader, to load plugins.
+     */
+    DynamicClassLoader newCL = (DynamicClassLoader) AccessController.doPrivileged(new PrivilegedAction() {
+      @Override
+      public Object run() {
+        return new clojure.lang.DynamicClassLoader(ClojurePluginCL);
+      }
+    });
 
-      // Init required to set clojure.lang.Compiler.LOADER a little earlier.
-      clojure.lang.RT.init();
-      // This changes the internal class loader of Clojure.
-      clojure.lang.Var.pushThreadBindings(clojure.lang.RT.map(clojure.lang.Compiler.LOADER, newCL));
-    } finally {
-      // We must set the class loader back, else face serious consequences!
-      Thread.currentThread().setContextClassLoader(bukkitCL);
-    }
+    // Init required to set clojure.lang.Compiler.LOADER a little earlier.
+    clojure.lang.RT.init();
+    // This changes the internal class loader of Clojure.
+    clojure.lang.Var.pushThreadBindings(clojure.lang.RT.map(clojure.lang.Compiler.LOADER, newCL));
   }
 
 
