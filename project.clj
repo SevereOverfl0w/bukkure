@@ -5,7 +5,6 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :java-source-paths ["javasrc"]
   :javac-options ["-d" "classes/" "-source" "1.7" "-target" "1.7"]
-  :resource-paths ["resources/*"]
   :repositories [["spigot-repo" "https://hub.spigotmc.org/nexus/content/groups/public/"]]
   :plugins [[codox "0.8.13"]]
   :codox {:defaults {:doc/format :markdown}}
@@ -15,4 +14,3 @@
                  [cheshire "5.2.0"]]
   :profiles {:provided
               {:dependencies [[org.bukkit/bukkit "1.8.8-R0.1-SNAPSHOT"]]}})
-
