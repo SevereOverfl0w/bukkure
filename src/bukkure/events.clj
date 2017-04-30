@@ -47,17 +47,11 @@
         (execute [l e] (handle-event f e)))
       plugin)))
 
-(defonce registered-events
-  (atom #{}))
-
-(defn register-eventlist
+(defn ^:deprecated register-eventlist
   "Register a list of events."
   [plugin events]
   (doseq [ev events]
-    (when-not (@registered-events ev)
-      (swap! registered-events conj ev)
-      (register-event plugin (:eventname ev) (:event-fn ev) (:priority ev))
-      )))
+    (register-event plugin (:eventname ev) (:event-fn ev) (:priority ev))))
 
 (defn event
   "Convenience function for registering events, eventname being prefixed with org.bukkit.event. 
