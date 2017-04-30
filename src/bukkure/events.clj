@@ -16,16 +16,32 @@
     (do
       (if (:msg response) (plr/send-msg e (:msg response))))))
 
+(defrecord IdListener
+  [id]
+  org.bukkit.event.Listener)
+
 (defn register-event
   "Registers an event to a plugin
 
-  example eventnames: player.player-quit for player.PlayerQuit"
-  [plugin eventname f & [priority-key]]
+  example eventnames: player.player-quit for player.PlayerQuit
+
+  id: A unique id for this event. Allows redefining this event."
+  [plugin eventname f {:keys [priority-key id] :as opts}]
   (let [eventclass (resolve (symbol (util/package-classname "org.bukkit.event" (str eventname "-event"))))]
+    (when id
+      (doseq [listener
+              (->> (org.bukkit.event.HandlerList/getRegisteredListeners plugin)
+                   (map (memfn getListener))
+                   (filter #(and
+                              (instance? IdListener %)
+                              (= id (:id %)))))]
+        (org.bukkit.event.HandlerList/unregisterAll listener)))
     (.registerEvent
       (bk/plugin-manager)
       eventclass
-      (proxy [org.bukkit.event.Listener] [])
+      (if id
+        (map->IdListener {:id id})
+        (proxy [org.bukkit.event.Listener] []))
       (get priorities (or priority-key :normal))
       (proxy [org.bukkit.plugin.EventExecutor] []
         (execute [l e] (handle-event f e)))
