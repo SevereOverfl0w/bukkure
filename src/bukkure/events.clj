@@ -17,7 +17,9 @@
       (if (:msg response) (plr/send-msg e (:msg response))))))
 
 (defn register-event
-  "Registers an event to a plugin"
+  "Registers an event to a plugin
+
+  example eventnames: player.player-quit for player.PlayerQuit"
   [plugin eventname f & [priority-key]]
   (let [eventclass (resolve (symbol (util/package-classname "org.bukkit.event" (str eventname "-event"))))]
     (.registerEvent
