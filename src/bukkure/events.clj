@@ -23,13 +23,13 @@
   [plugin eventname f & [priority-key]]
   (let [eventclass (resolve (symbol (util/package-classname "org.bukkit.event" (str eventname "-event"))))]
     (.registerEvent
-     (bk/plugin-manager)
-     eventclass
-     (proxy [org.bukkit.event.Listener] [])
-     (get priorities (or priority-key :normal))
-     (proxy [org.bukkit.plugin.EventExecutor] []
-       (execute [l e] (handle-event f e)))
-     plugin)))
+      (bk/plugin-manager)
+      eventclass
+      (proxy [org.bukkit.event.Listener] [])
+      (get priorities (or priority-key :normal))
+      (proxy [org.bukkit.plugin.EventExecutor] []
+        (execute [l e] (handle-event f e)))
+      plugin)))
 
 (defonce registered-events
   (atom #{}))
